@@ -1,8 +1,14 @@
 import Navigation from "@/src/components/nav";
 import Main from "@/src/components/main";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
+    useEffect(() => {
+        console.log("Product card rendered for the first time!");
+        return () => {
+            console.log("Unmounted");
+        };
+    }, []);
     const [store, setStore] = useState<number>(0);
     return (
         <div className="h-full flex flex-col w-full bg-gray-200">
