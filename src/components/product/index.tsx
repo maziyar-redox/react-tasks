@@ -1,19 +1,19 @@
-import ProductCard from "@/src/components/main/ProductCard";
-import { productData } from "@/src/mock/data";
-import type { Dispatch, SetStateAction } from "react";
+import ProductCard from "@/src/components/product/ProductCard";
 
-function Main({
-    setStore
-}: { setStore: Dispatch<SetStateAction<number>> }) {
+import { productData } from "@/src/mock/data";
+
+function ProductList() {
     return (
-        <ul className="flex flex-row flex-wrap items-center justify-start w-full px-36 gap-10">
+        <ul className="flex flex-row flex-wrap items-center justify-start w-full px-8 md:px-16 lg:px-36 gap-10">
             {productData.map((val) => (
                 <ProductCard
                     key={val.Id}
                     Title={val.Title}
                     Description={val.Description}
                     Price={val.Price}
-                    setStore={setStore}
+                    Discount={val.Discount}
+                    ImgUrl={val.ImgUrl}
+                    IsNew={val.IsNew}
                     Id={val.Id}
                 />
             ))}
@@ -21,4 +21,4 @@ function Main({
     );
 };
 
-export default Main;
+export default ProductList;
